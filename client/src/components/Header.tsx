@@ -4,18 +4,25 @@ const Header = () => {
     <header className="w-full bg-orange-300">
       <div className="w-full flex flex-wrap flex-col p-4 max-w-3xl mx-auto">
         <div className="w-full flex items-center gap-2">
-          <a className="h-13 w-13" href="/">
-            <img className="h-13" src={logo} alt="logo" />
+          <a className="h-13 w-13 flex-none" href="/">
+            <img
+              className="max-w-full h-auto object-contain"
+              src={logo}
+              alt="logo"
+            />
           </a>
           <div className="grow flex flex-col gap-4">
-            <div className="w-full flex justify-between">
+            <div className="w-full ">
               <search className="flex">
                 <input type="text" placeholder="Search..." />
-                <button>Search</button>
+                <button className="absolute">
+                  <i className="fa-solid fa-magnifying-glass"></i>
+                </button>
               </search>
               <nav className="md:hidden"> ||| </nav>
               <div>Cart</div>
             </div>
+            {/* Navegacion >tablet */}
             <div className="w-full hidden md:flex">
               <nav>
                 <ul className="flex">
@@ -30,7 +37,7 @@ const Header = () => {
             </div>
           </div>
         </div>
-        {/* Desplegable mobile */}
+        {/* Navegacion desplegable mobile */}
         <div className="w-full flex flex-col md:hidden">
           <nav>
             <ul className="flex">
