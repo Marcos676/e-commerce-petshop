@@ -1,4 +1,21 @@
+/* fuentes */
+@import url('https://fonts.googleapis.com/css2?family=Staatliches&family=Work+Sans:ital,wght@0,400;0,600;1,200&display=swap');
 @import "tailwindcss";
+
+
+@theme {
+  --color-naranjaClaro: #f5cd76;
+  --color-grisClaro: #ebebeb;
+  --color-gris50: #7f7f7f;
+  --color-grisOscuro: #666666;
+  --color-verde: #55b054 ;
+  --color-blanco: #f2f2f2;
+  --color-rojo: #ff0000; 
+  --color-amarillo: #e6ff00;
+  --color-negro: #000;
+  --font-work-sans: "Work-Sans";
+  --font-staatliches: "Staatliches"
+}
 
 * {
   box-sizing: border-box;
