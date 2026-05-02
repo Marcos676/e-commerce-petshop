@@ -2,7 +2,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Staatliches&family=Work+Sans:ital,wght@0,400;0,600;1,200&display=swap');
 @import "tailwindcss";
 
-
 @theme {
   --color-naranjaClaro: #f5cd76;
   --color-grisClaro: #ebebeb;
@@ -66,10 +65,10 @@
   }
 } */
 
-#root {
+/* #root {
   max-width: 100vw;
   max-height: 100vh;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-}
+} */
