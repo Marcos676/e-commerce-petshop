@@ -1,12 +1,17 @@
-import Header from "./Header"
-
+import Header from "./Header";
+import Home from "../pages/Home";
 
 const App = () => {
   return (
     <>
-      <Header />
+      <div className="w-full max-h-screen max-w-screen mx-auto bg-grisClaro">
+        <Header />
+        <main className="max-w-6xl mx-auto">
+          <Home />
+        </main>
+      </div>
     </>
-  )
-}
+  );
+};
 
-export default App
+export default App;
