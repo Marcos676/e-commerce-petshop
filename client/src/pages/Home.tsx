@@ -117,7 +117,26 @@ const Home = () => {
           ochentosa.
         </p>
       </section>
-      
+
+      <div className="flex justify-around flex-wrap bg-blanco rounded-lg p-4 my-4 gap-5">
+        {[
+          { icono: "fa-credit-card", texto: "Pagá con tarjeta o efectivo" },
+          { icono: "fa-box", texto: "Envío gratis desde $50.000" },
+          { icono: "fa-user-shield", texto: "Seguridad, de principio a fin" },
+        ].map((beneficio, index) => (
+          <div
+            key={index}
+            className="min-w-70 flex flex-col justify-around items-center py-2 gap-2"
+          >
+            <i
+              className={`fas ${beneficio.icono} block text-2xl text-negro`}
+            ></i>
+            <p className="text-xl font-bold text-negro text-center">
+              {beneficio.texto}
+            </p>
+          </div>
+        ))}
+      </div>
     </>
   );
 };
