@@ -4,7 +4,7 @@ import Home from "../pages/Home";
 const App = () => {
   return (
     <>
-      <div className="w-full max-h-screen max-w-screen mx-auto bg-grisClaro">
+      <div className="w-full max-w-screen mx-auto bg-grisClaro">
         <Header />
         <main className="max-w-6xl mx-auto">
           <Home />
