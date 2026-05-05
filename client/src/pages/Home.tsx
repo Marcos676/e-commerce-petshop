@@ -5,8 +5,8 @@ import "swiper/css"; // Importa estilos
 import "swiper/css/autoplay";
 
 type ProductCardProps = {
-  name: String
-}
+  name: String;
+};
 const ProductCard = ({ name }: ProductCardProps) => {
   return (
     <a className="h-full bg-blanco rounded-lg shadow-md p-4">
@@ -60,8 +60,8 @@ const Home = () => {
         )}
       </Swiper>
       <section className="px-2 my-4">
-        <h2 className="mb-2 text-2xl text-grisOscuro">
-          Busca por tipo de mascota
+        <h2 className="mb-2 text-2xl text-center font-bold text-grisOscuro">
+          Selecciona tu tipo de mascota
         </h2>
         <ul
           className="grid justify-around items-center"
