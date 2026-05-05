@@ -1,5 +1,6 @@
 import Header from "./Header";
 import Home from "../pages/Home";
+import Footer from "./Footer";
 
 const App = () => {
   return (
@@ -9,6 +10,7 @@ const App = () => {
         <main className="max-w-6xl mx-auto">
           <Home />
         </main>
+        <Footer />
       </div>
     </>
   );
