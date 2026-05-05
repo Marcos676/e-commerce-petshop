@@ -80,7 +80,7 @@ const Home = () => {
           )}
         </ul>
       </section>
-      <section className="p-4 m-4 bg-blanco rounded-lg">
+      <section className="p-4 my-4 bg-blanco rounded-lg">
         <h2 className="mb-2 border-b border-grisClaro text-2xl font-bold text-grisOscuro">
           Productos más vendidos
         </h2>
@@ -92,6 +92,32 @@ const Home = () => {
           <ProductCard name="Nombre del producto 5" />
         </div>
       </section>
+      <section className="p-4 my-4 bg-blanco rounded-lg">
+        <h2 className="mb-2 text-center text-2xl font-bold text-grisOscuro">
+          Sobre nosotros
+        </h2>
+        <p className="text-grisOscuro text-center text-xl font-medium">
+          En nuestra empresa FootGoose® ofrecemos una amplia gama de productos y
+          alimentos para su mascota, como así también un servicio médico
+          ambulatorio para emergencias veterinarias. Somos la empresa líder en
+          distribución y abastecimiento de insumos animales. Nuestros clientes
+          promueven a las mascotas como un miembro más de la familia, y a cambio
+          nosotros les proveemos un servicio de primer nivel. El proyecto
+          FootGoose® surge cuando en 1984 Alejandro Patiño (padre del dueño de
+          la marca), le realiza maniobras de RCP a un ganso en una playa de la
+          costa este de los Estados Unidos. Al salvarle la vida al animal, un
+          extraño hombre le agradeció, era el mismísimo Kenny Loggins, dueño del
+          ganso llamado Rupert.
+          <span className="block my-2 italic font-bold">
+            -"Jamás imaginé que conocería a Kenny Loggins, ni mucho menos
+            descubrir que tenía un ganso mascota"- dijo Alejandro.
+          </span>
+          A partir de ese momento, Loggins formó una gran amistad con Patiño, y
+          juntos fundaron FootGoose®, el primer centro veterinario con temática
+          ochentosa.
+        </p>
+      </section>
+      
     </>
   );
 };
