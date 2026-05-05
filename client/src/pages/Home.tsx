@@ -4,7 +4,38 @@ import { Autoplay } from "swiper/modules"; //importa modulo de autoplay para que
 import "swiper/css"; // Importa estilos
 import "swiper/css/autoplay";
 
-
+type ProductCardProps = {
+  name: String
+}
+const ProductCard = ({ name }: ProductCardProps) => {
+  return (
+    <a className="h-full bg-blanco rounded-lg shadow-md p-4">
+      <Swiper
+        modules={[Autoplay]}
+        autoplay={{ delay: 5000 }}
+        loop={true}
+        slidesPerView={1}
+      >
+        {["1.jpg", "2.jpg", "3.jpg"].map((img, index) => (
+          <SwiperSlide key={index}>
+            <img
+              src={`images/productos/${img}`}
+              className="w-full h-40 object-contain mb-4 rounded"
+              alt="Imagen de producto"
+            />
+          </SwiperSlide>
+        ))}
+      </Swiper>
+      <h3 className="line-clamp-2 text-lg font-semibold text-grisOscuro mb-2">
+        {name}
+      </h3>
+      <p className="flex items-center gap-2">
+        <span className="text-lg font-bold text-verde"> $19.99 </span>
+        <span className="text-sm font-bold text-rojo"> 25%off </span>
+      </p>
+    </a>
+  );
+};
 
 const Home = () => {
   return (
@@ -49,7 +80,18 @@ const Home = () => {
           )}
         </ul>
       </section>
-      
+      <section className="p-4 m-4 bg-blanco rounded-lg">
+        <h2 className="mb-2 border-b border-grisClaro text-2xl font-bold text-grisOscuro">
+          Productos más vendidos
+        </h2>
+        <div className="grid grid-rows-[repeat(auto-fit, 1fr)] grid-cols-[repeat(auto-fit,minmax(160px,1fr))] justify-between items-center gap-4">
+          <ProductCard name="Nombre del producto de marca 1 kajsdkhasd asda sdasd" />
+          <ProductCard name="Nombre del producto 2" />
+          <ProductCard name="Nombre del producto 3" />
+          <ProductCard name="Nombre del producto 4" />
+          <ProductCard name="Nombre del producto 5" />
+        </div>
+      </section>
     </>
   );
 };
