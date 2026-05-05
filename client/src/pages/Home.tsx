@@ -118,7 +118,7 @@ const Home = () => {
         </p>
       </section>
 
-      <div className="flex justify-around flex-wrap bg-blanco rounded-lg p-4 my-4 gap-5">
+      <div className="flex flex-col md:flex-row justify-around flex-wrap bg-blanco rounded-lg p-4 my-4 gap-5">
         {[
           { icono: "fa-credit-card", texto: "Pagá con tarjeta o efectivo" },
           { icono: "fa-box", texto: "Envío gratis desde $50.000" },
@@ -126,7 +126,7 @@ const Home = () => {
         ].map((beneficio, index) => (
           <div
             key={index}
-            className="min-w-70 flex flex-col justify-around items-center py-2 gap-2"
+            className="flex flex-col justify-around items-center py-2 gap-2"
           >
             <i
               className={`fas ${beneficio.icono} block text-2xl text-negro`}
