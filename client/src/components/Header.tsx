@@ -83,9 +83,15 @@ const Nav = ({ isMenuOpen, isMovile }: NavProps) => {
             (isMovile ? "w-full flex-col" : "justify-between")
           }
         >
-          <li className={isMovile ? "w-full" : "grow border-r-2"}>HOME</li>
-          <li className={isMovile ? "w-full" : "grow border-r-2"}>TIENDA</li>
-          <li className={isMovile ? "w-full" : "grow border-r-2"}>NOSOTROS</li>
+          <li className={isMovile ? "w-full" : "grow border-r-2"}>
+            <Link to="/">HOME</Link>
+          </li>
+          <li className={isMovile ? "w-full" : "grow border-r-2"}>
+            <Link to="/tienda">TIENDA</Link>
+          </li>
+          <li className={isMovile ? "w-full" : "grow border-r-2"}>
+            <Link to="/#nosotros">NOSOTROS</Link>
+          </li>
           <li className={isMovile ? "w-full" : "grow"}>FAQS</li>
         </ul>
       </nav>

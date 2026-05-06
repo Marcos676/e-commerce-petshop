@@ -92,7 +92,7 @@ const Home = () => {
           <ProductCard name="Nombre del producto 5" />
         </div>
       </section>
-      <section className="p-4 my-4 bg-blanco rounded-lg">
+      <section id="nosotros" className="p-4 my-4 bg-blanco rounded-lg">
         <h2 className="mb-2 text-center text-2xl font-bold text-grisOscuro">
           Sobre nosotros
         </h2>
