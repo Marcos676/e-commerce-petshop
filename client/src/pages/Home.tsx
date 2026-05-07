@@ -1,3 +1,4 @@
+import PetList from "../components/PetList";
 //Swiper es una libreria de carrusel apra React
 import { Swiper, SwiperSlide } from "swiper/react"; //importa componentes principales de Swiper
 import { Autoplay } from "swiper/modules"; //importa modulo de autoplay para que el carrusel se mueva solo
@@ -63,22 +64,7 @@ const Home = () => {
         <h2 className="mb-2 text-2xl text-center font-bold text-grisOscuro">
           Selecciona tu tipo de mascota
         </h2>
-        <ul
-          className="grid justify-around items-center"
-          style={{ gridTemplateColumns: "repeat(auto-fit, 100px)" }}
-        >
-          {["Perro", "Gato", "Pez", "Roedor", "Ave", "Reptil"].map(
-            (tipo, index) => (
-              <li key={index} className="mx-auto">
-                <img
-                  className="max-w-full h-auto object-contain"
-                  src={`images/categorias/icono${tipo}.png`}
-                  alt={tipo}
-                />
-              </li>
-            ),
-          )}
-        </ul>
+        <PetList isFilterView={false} width={"w-25 md:w-30"} />
       </section>
       <section className="p-4 my-4 bg-blanco rounded-lg">
         <h2 className="mb-2 border-b border-grisClaro text-2xl font-bold text-grisOscuro">
