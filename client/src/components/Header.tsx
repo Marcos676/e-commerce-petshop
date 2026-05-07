@@ -1,14 +1,17 @@
 import logo from "../assets/logo.png";
 import { useState, useRef, useEffect } from "react";
+import type { Dispatch, SetStateAction } from "react";
 import { Link } from "react-router-dom";
+import { useDropdown } from "../hooks/useDropdown";
 import { replaceClass } from "../utils/handleDOM";
 
 type NavProps = {
   isMenuOpen: boolean;
+  setIsMenuOpen: Dispatch<SetStateAction<boolean>>;
   isMovile: boolean;
 };
 
-const Nav = ({ isMenuOpen, isMovile }: NavProps) => {
+const Nav = ({ isMenuOpen, setIsMenuOpen, isMovile }: NavProps) => {
   const menuRef = useRef<HTMLDivElement>(null);
   const [theme, setTheme] = useState("light"); // Estado para controlar el tema actual (light/dark)
 
@@ -40,19 +43,12 @@ const Nav = ({ isMenuOpen, isMovile }: NavProps) => {
     }
   }, [theme]);
 
-  // Efecto para abrir/cerrar el menú móvil midiendo su altura real para animar su apertura/cierre
-  useEffect(() => {
-    if (!isMovile) return; // Solo aplica este efecto para el menú móvil
-    if (menuRef.current) {
-      // Mide la altura del contenido del menú
-      const height = menuRef.current.scrollHeight + "px";
-      if (isMenuOpen) {
-        menuRef.current.style.height = height;
-      } else {
-        menuRef.current.style.height = "0px";
-      }
-    }
-  }, [isMenuOpen]);
+  // Si la vista es para movile, activa el Hook para abrir/cerrar el menú móvil
+  isMovile && useDropdown({
+    isOpen: isMenuOpen,
+    setIsOpen: setIsMenuOpen,
+    element: menuRef.current,
+  });
 
   return (
     <div
@@ -148,11 +144,19 @@ const Header = () => {
               </div>
             </div>
             {/* Navegacion >= a tablet */}
-            <Nav isMenuOpen={isMenuOpen} isMovile={false} />
+            <Nav
+              isMenuOpen={isMenuOpen}
+              setIsMenuOpen={setIsMenuOpen}
+              isMovile={false}
+            />
           </div>
         </div>
         {/* Navegacion desplegable mobile */}
-        <Nav isMenuOpen={isMenuOpen} isMovile={true} />
+        <Nav
+          isMenuOpen={isMenuOpen}
+          setIsMenuOpen={setIsMenuOpen}
+          isMovile={true}
+        />
       </div>
     </header>
   );
