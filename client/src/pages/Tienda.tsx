@@ -1,5 +1,6 @@
 import { useState, useRef } from "react";
 import PetList from "../components/PetList";
+import ProductCard from "../components/ProductCard";
 import { useDropdown } from "../hooks/useDropdown";
 
 /* Contiene 2 divs: 
@@ -19,11 +20,15 @@ const Tienda = () => {
   const handleIsFilterOpen = () => setIsFilterOpen(!isFilterOpen);
 
   //Hook que se encarga de la apertura y cierre del contenido a desplegar
-  useDropdown({isOpen: isFilterOpen, setIsOpen: setIsFilterOpen, element: filterRef.current});
+  useDropdown({
+    isOpen: isFilterOpen,
+    setIsOpen: setIsFilterOpen,
+    element: filterRef.current,
+  });
   return (
-    <div className="grid grid-cols-1 grid-rows-[auto_auto] [grid-template-areas:'filtros'_'productos'] md:grid-cols-2 md:grid-rows-2 md:[grid-template-areas:'filtros_filtros'_'filtros_productos'] p-2 gap-2">
-      <div className="[grid-area:filtros] flex flex-wrap justify-between gap-2">
-        <div className="w-full text-grisOscuro font-bold text-sm md:text-lg">
+    <div className="p-2 gap-2">
+      <div className="flex flex-wrap justify-between gap-2 mb-2">
+        <div className="w-full md:w-auto text-grisOscuro font-bold text-sm md:text-lg">
           Tienda / Perro / Alimento / Medicado
         </div>
         <div className="hidden md:block text-grisOscuro bg-grisClaro text-lg font-bold">
@@ -46,12 +51,14 @@ const Tienda = () => {
           <option value="valor2">Opción 1</option>
           <option value="valor3">Opción 2</option>
         </select>
+      </div>
+      <div className="flex flex-col md:flex-row gap-2">
         {/* Seccion de filtros */}
         <div
           ref={filterRef}
-          className="h-0 md:h-auto overflow-hidden transition-all duration-700 w-full flex flex-col items-center gap-4 border-t border-grisOscuro pt-2"
+          className="h-0 md:h-auto w-full md:max-w-58 overflow-hidden transition-all duration-700 flex flex-col items-center gap-4 border-t border-b border-grisOscuro"
         >
-          <div className="md:w-full">
+          <div className="md:w-full pt-2">
             <select
               className="md:hidden text-grisOscuro border rounded-sm text-lg px-5 py-1"
               name="animal"
@@ -121,16 +128,28 @@ const Tienda = () => {
               <span className="text-lg text-grisOscuro">$100000</span>
             </div>
           </div>
-          <div>
+          <div className="pb-2">
             <button className="bg-verde text-blanco rounded-sm px-5 py-1 font-bold text-lg">
               Fitrar
             </button>
           </div>
         </div>
-      </div>
-      <div className="[grid-area:productos] bg-red-500">
-        <div>Targetas de Productos</div>
-        <div>Paginador</div>
+        {/* ------- */}
+        <div className="flex grow flex-col gap-4">
+          <div className="grid grid-cols-[repeat(auto-fit,minmax(160px,1fr))] grid-rows-[repeat(auto-fit, 1fr)] justify-between items-center gap-4">
+            <ProductCard name="Nombre del producto de marca 1 kajsdkhasd asda sdasd" />
+            <ProductCard name="Nombre del producto 2" />
+            <ProductCard name="Nombre del producto 3" />
+            <ProductCard name="Nombre del producto 4" />
+            <ProductCard name="Nombre del producto 5" />
+            <ProductCard name="Nombre del producto de marca 1 kajsdkhasd asda sdasd" />
+            <ProductCard name="Nombre del producto 2" />
+            <ProductCard name="Nombre del producto 3" />
+            <ProductCard name="Nombre del producto 4" />
+            <ProductCard name="Nombre del producto 5" />
+          </div>
+          <div>Paginador</div>
+        </div>
       </div>
     </div>
   );
