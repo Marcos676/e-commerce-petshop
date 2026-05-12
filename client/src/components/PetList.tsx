@@ -6,7 +6,10 @@ type Props = {
 
 const PetList = ({ width, isFilterView }: Props) => {
   return (
-    <ul className={"flex-wrap justify-around " + isFilterView? "hidden md:flex": "flex"}>
+    <ul
+      className={
+        (isFilterView? "hidden md:flex" : "flex") + " flex-wrap justify-around"}
+    >
       {["Perro", "Gato", "Pez", "Roedor", "Ave", "Reptil"].map(
         (tipo, index) => (
           <li key={index} className={"inline " + width}>
