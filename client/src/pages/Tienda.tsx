@@ -16,6 +16,10 @@ const Tienda = () => {
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const filterRef = useRef<HTMLDivElement>(null);
 
+  // Parte de la logica de Paginación
+  /*const [currentPage, setCurrentPage] = useState(1);
+  const totalPages = 12; // o calcúlalo dinámicamente según tus productos */
+
   // Maneja el valor de la apertura y cierre del desplegable
   const handleIsFilterOpen = () => setIsFilterOpen(!isFilterOpen);
 
@@ -56,7 +60,7 @@ const Tienda = () => {
         {/* Seccion de filtros */}
         <div
           ref={filterRef}
-          className="h-0 md:h-auto w-full md:max-w-58 overflow-hidden transition-all duration-700 flex flex-col items-center gap-4 border-t border-b border-grisOscuro"
+          className="h-0 md:h-auto w-full md:max-w-58 overflow-hidden transition-all duration-700 flex flex-col items-center gap-4 border-t border-b md:border-b-0 border-grisOscuro"
         >
           <div className="md:w-full pt-2">
             <select
@@ -148,7 +152,69 @@ const Tienda = () => {
             <ProductCard name="Nombre del producto 4" />
             <ProductCard name="Nombre del producto 5" />
           </div>
-          <div>Paginador</div>
+          {/* Paginador */}
+          <div className="flex items-center justify-center gap-2 text-grisOscuro font-bold">
+            <button
+              className="px-3 py-1 border rounded-sm disabled:opacity-50 disabled:cursor-not-allowed hover:bg-grisClaro"
+              /* disabled={currentPage === 1}
+                onClick={() => setCurrentPage((prev) => Math.max(1, prev - 1))} */
+            >
+              Anterior
+            </button>
+
+            {/* LOGICA PROPUESTA EXAMINAR Y ADAPTAR AL MOMENTO DE APLICAR
+                {Array.from({ length: Math.min(5, totalPages) }, (_, i) => {
+                // Centrar el rango visual alrededor de la página actual
+                let startPage = Math.max(1, currentPage - 2);
+                if (totalPages > 5 && currentPage > totalPages - 3) {
+                  startPage = totalPages - 4;
+                }
+                const page = startPage + i;
+                if (page > totalPages) return null;
+
+                return (
+                  <button
+                    key={page}
+                    className={`px-3 py-1 border rounded-sm ${
+                      currentPage === page
+                        ? "bg-verde text-blanco border-verde"
+                        : "hover:bg-grisClaro"
+                    }`}
+                    onClick={() => setCurrentPage(page)}
+                  >
+                    {page}
+                  </button>
+                );
+              })} */}
+
+            {/* PROVISORIO PARA LA VISTA */}
+            {[1, 2, 3, 4].map((page) => {
+              return (
+                <button
+                  key={page}
+                  className={`px-3 py-1 border rounded-sm hidden min-[375px]:block hover:bg-grisOscuro hover:text-blanco`}
+                  /* onClick={() => setCurrentPage(page)} */
+                >
+                  {page}
+                </button>
+              );
+            })}
+
+            {/* ------------------------- */}
+
+            <button
+              className="px-3 py-1 border rounded-sm disabled:opacity-50 disabled:cursor-not-allowed hover:bg-grisClaro"
+              /* disabled={currentPage === totalPages}
+                onClick={() =>
+                  setCurrentPage((prev) => Math.min(totalPages, prev + 1)) 
+                }*/
+            >
+              Siguiente
+            </button>
+          </div>
+          <div className="text-center text-sm text-grisOscuro mt-2">
+            {/*  Página {currentPage} de {totalPages} */} 3
+          </div>
         </div>
       </div>
     </div>
