@@ -155,6 +155,7 @@ const Tienda = () => {
           {/* Paginador */}
           <div className="flex items-center justify-center gap-2 text-grisOscuro font-bold">
             <button
+              disabled
               className="px-3 py-1 border rounded-sm disabled:opacity-50 disabled:cursor-not-allowed hover:bg-grisClaro"
               /* disabled={currentPage === 1}
                 onClick={() => setCurrentPage((prev) => Math.max(1, prev - 1))} */
@@ -162,7 +163,7 @@ const Tienda = () => {
               Anterior
             </button>
 
-            {/* LOGICA PROPUESTA EXAMINAR Y ADAPTAR AL MOMENTO DE APLICAR
+            {/* LOGICA PROPUESTA. EXAMINAR Y ADAPTAR AL MOMENTO DE APLICAR
                 {Array.from({ length: Math.min(5, totalPages) }, (_, i) => {
                 // Centrar el rango visual alrededor de la página actual
                 let startPage = Math.max(1, currentPage - 2);
@@ -178,7 +179,7 @@ const Tienda = () => {
                     className={`px-3 py-1 border rounded-sm ${
                       currentPage === page
                         ? "bg-verde text-blanco border-verde"
-                        : "hover:bg-grisClaro"
+                        : "hover:bg-grisOscuro hover:text-blanco"
                     }`}
                     onClick={() => setCurrentPage(page)}
                   >
@@ -188,7 +189,13 @@ const Tienda = () => {
               })} */}
 
             {/* PROVISORIO PARA LA VISTA */}
-            {[1, 2, 3, 4].map((page) => {
+            <button
+              className={`px-3 py-1 border rounded-sm hidden min-[375px]:block bg-verde text-blanco border-verde`}
+              /* onClick={() => setCurrentPage(page)} */
+            >
+              {1}
+            </button>
+            {[2, 3, 4].map((page) => {
               return (
                 <button
                   key={page}
@@ -213,7 +220,7 @@ const Tienda = () => {
             </button>
           </div>
           <div className="text-center text-sm text-grisOscuro mt-2">
-            {/*  Página {currentPage} de {totalPages} */} 3
+            {/*  Página {currentPage} de {totalPages} */} 1 de 4
           </div>
         </div>
       </div>
