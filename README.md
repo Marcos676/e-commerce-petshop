@@ -249,7 +249,7 @@ npx tsc --noEmit
 ## 📞 Información del Proyecto Original
 
 **Repositorio Original:** [Grupo_6_FootGoose](https://github.com/Grupo-6-FootGoose)  
-**Tipo:** E-commerce para tienda de calzado  
+**Tipo:** E-commerce para petshop  
 **Equipo:** Proyecto grupal refactorizado individualmente
 
 ---
